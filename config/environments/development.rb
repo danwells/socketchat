@@ -1,3 +1,9 @@
+require 'pusher'
+
+Pusher.app_id = '74837'
+  Pusher.key    = '19056cd3479894457dea'
+  Pusher.secret = 'dd9a1ff549e2cb47c675'
+
 Socketchat::Application.configure do
   config.logger = Logger.new(STDOUT)
   config.logger.level = Logger.const_get(
