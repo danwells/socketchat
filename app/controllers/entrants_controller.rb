@@ -44,6 +44,11 @@ class EntrantsController < ApplicationController
 
     respond_to do |format|
       if @entrant.save
+        
+        Pusher['chatroom'].trigger('welcome', {
+          :new_member_msg => "Welcome to the chatroom!"
+        })
+        
         format.html { redirect_to @entrant, notice: 'Entrant was successfully created.' }
         format.json { render json: @entrant, status: :created, location: @entrant }
       else
